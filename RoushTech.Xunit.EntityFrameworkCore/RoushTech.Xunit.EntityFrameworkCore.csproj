@@ -1,14 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
-        <TargetFramework>netcoreapp2.1</TargetFramework>
+        <Description>Xunit + Entity Framework Core RoushTech Toolkit</Description>
+        <Copyright>RoushTech, LLC 2018</Copyright>
+        <AssemblyTitle>RoushTech.Xunit.EntityFrameworkCore</AssemblyTitle>
         <VersionPrefix>0.0.1</VersionPrefix>
+        <Authors>William Roush</Authors>
+        <AssemblyName>RoushTech.Xunit.EntityFrameworkCore</AssemblyName>
+        <PackageId>RoushTech.Xunit.EntityFrameworkCore</PackageId>
+        <PackageTags>RoushTech, Xunit, EntityFrameworkCore</PackageTags>
+        <PackageProjectUrl>https://github.com/RoushTech/RoushTech.Xunit.EntityFrameworkCore</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/RoushTech/RoushTech.Xunit.EntityFrameworkCore/blob/master/LICENSE.txt</PackageLicenseUrl>
+        <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+        <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+        <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+        <TargetFrameworks>netcoreapp2.1</TargetFrameworks>
     </PropertyGroup>
-
     <ItemGroup>
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.4" />
       <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.1.1" />
       <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.1.1" />
     </ItemGroup>
-
 </Project>
