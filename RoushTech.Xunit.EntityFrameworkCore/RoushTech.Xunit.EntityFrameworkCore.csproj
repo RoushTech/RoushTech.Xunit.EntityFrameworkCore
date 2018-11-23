@@ -3,7 +3,7 @@
         <Description>Xunit + Entity Framework Core RoushTech Toolkit</Description>
         <Copyright>RoushTech, LLC 2018</Copyright>
         <AssemblyTitle>RoushTech.Xunit.EntityFrameworkCore</AssemblyTitle>
-        <VersionPrefix>0.0.1</VersionPrefix>
+        <VersionPrefix>0.0.2</VersionPrefix>
         <Authors>William Roush</Authors>
         <AssemblyName>RoushTech.Xunit.EntityFrameworkCore</AssemblyName>
         <PackageId>RoushTech.Xunit.EntityFrameworkCore</PackageId>
