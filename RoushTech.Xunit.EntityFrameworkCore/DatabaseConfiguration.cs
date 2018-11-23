@@ -34,7 +34,7 @@ namespace RoushTech.Xunit.EntityFrameworkCore
                 .Build();
             ServiceCollection = new ServiceCollection();
             ManagedContexts = new List<Type>();
-            foreach (var configuration in Configuration.GetSection("Data:ConnectionStrings").GetChildren())
+            foreach (var configuration in Configuration.GetSection("ConnectionStrings").GetChildren())
             {
                 configuration.Value = configuration.Value.Replace("{ID}", InstanceId.ToString());
             }
