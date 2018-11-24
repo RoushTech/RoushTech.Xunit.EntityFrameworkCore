@@ -10,7 +10,6 @@ namespace RoushTech.Xunit.EntityFrameworkCore
 
     public class DatabaseConfiguration
     {
-        public object ConcurrencyLock { get; } = new object();
         public IConfiguration Configuration { get; }
 
         public static DatabaseConfiguration Instance { get; } = new DatabaseConfiguration();
@@ -22,8 +21,6 @@ namespace RoushTech.Xunit.EntityFrameworkCore
         public IServiceProvider Services { get; protected set; }
 
         protected IList<Type> ManagedContexts { get; }
-
-        public bool Seeded { get; set; }
 
         protected DatabaseConfiguration()
         {
@@ -44,28 +41,18 @@ namespace RoushTech.Xunit.EntityFrameworkCore
 
         public void AddContext<TDbContext>(Action<DbContextOptionsBuilder> options) where TDbContext : DbContext
         {
-            lock (ConcurrencyLock)
-            {
-                if (ManagedContexts.Contains(typeof(DbContext)))
-                {
-                    return;
-                }
+            ManagedContexts.Add(typeof(TDbContext));
+            ServiceCollection.AddDbContext<TDbContext>(options);
+        }
 
-                ManagedContexts.Add(typeof(TDbContext));
-                ServiceCollection.AddDbContext<TDbContext>(options);
-            }
+        public void CreateDatabases()
+        {
+            DoToAllDatabases(d => d.EnsureCreated());
         }
 
         public void CreateServiceProvider()
         {
-            lock (ConcurrencyLock)
-            {
-                if (Services == null)
-                {
-                    Services = ServiceCollection.BuildServiceProvider();
-                    DoToAllDatabases(d => d.EnsureCreated());
-                }
-            }
+            Services = ServiceCollection.BuildServiceProvider();
         }
 
         public void Dispose()
