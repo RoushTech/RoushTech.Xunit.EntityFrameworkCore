@@ -25,8 +25,9 @@ namespace RoushTech.Xunit.EntityFrameworkCore
         protected DatabaseConfiguration()
         {
             Configuration = new ConfigurationBuilder()
-                .AddJsonFile(Path.GetFullPath(@"..\..\..\appsettings.json"), true)
-                .AddJsonFile(Path.GetFullPath(@"..\..\..\appsettings.local.json"), true)
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile(Path.GetFullPath(@"appsettings.json"), true)
+                .AddJsonFile(Path.GetFullPath(@"appsettings.local.json"), true)
                 .AddEnvironmentVariables()
                 .Build();
             ServiceCollection = new ServiceCollection();
