@@ -24,9 +24,11 @@ namespace RoushTech.Xunit.EntityFrameworkCore
 
         protected DatabaseConfiguration()
         {
+            var directory = FindAppsettingsDirectory();
             Configuration = new ConfigurationBuilder()
-                .AddJsonFile(Path.GetFullPath(@"..\..\..\appsettings.json"), true)
-                .AddJsonFile(Path.GetFullPath(@"..\..\..\appsettings.local.json"), true)
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile(Path.GetFullPath($"{directory}appsettings.json"), true)
+                .AddJsonFile(Path.GetFullPath($"{directory}appsettings.local.json"), true)
                 .AddEnvironmentVariables()
                 .Build();
             ServiceCollection = new ServiceCollection();
@@ -37,6 +39,26 @@ namespace RoushTech.Xunit.EntityFrameworkCore
             }
 
             AppDomain.CurrentDomain.ProcessExit += (s, e) => Dispose();
+        }
+
+        private string FindAppsettingsDirectory()
+        {
+            var directory = string.Empty;
+            var depth = 0;
+            while (!Check(directory) || depth > 4)
+            {
+                directory = "../" + directory;
+                depth++;
+            }
+
+            return directory;
+        }
+
+        private bool Check(string directory)
+        {
+            var file = $"{directory}appsettings.json";
+            Console.WriteLine(file);
+            return File.Exists(file);
         }
 
         public void AddContext<TDbContext>(Action<DbContextOptionsBuilder> options) where TDbContext : DbContext
