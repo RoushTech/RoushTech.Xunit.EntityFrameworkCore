@@ -25,6 +25,8 @@ namespace RoushTech.Xunit.EntityFrameworkCore
         protected DatabaseConfiguration()
         {
             var directory = FindAppsettingsDirectory();
+            Console.WriteLine($"Directory resolved to: {Directory.GetCurrentDirectory()}");
+            Console.WriteLine($"Looking for appsettings at: {Directory.GetCurrentDirectory()}{directory}appsettings.json");
             Configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile(Path.GetFullPath($"{directory}appsettings.json"), true)
@@ -45,7 +47,7 @@ namespace RoushTech.Xunit.EntityFrameworkCore
         {
             var directory = string.Empty;
             var depth = 0;
-            while (!Check(directory) || depth > 4)
+            while (!Check(directory) || depth > 6)
             {
                 directory = "../" + directory;
                 depth++;
