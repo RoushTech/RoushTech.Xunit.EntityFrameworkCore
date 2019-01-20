@@ -39,7 +39,10 @@ namespace RoushTech.Xunit.EntityFrameworkCore
             {
                 configuration.Value = configuration.Value.Replace("{ID}", InstanceId.ToString());
             }
-
+        }
+        
+        public void EnableDatabaseDestruction()
+        {
             AppDomain.CurrentDomain.ProcessExit += (s, e) => Dispose();
         }
 
