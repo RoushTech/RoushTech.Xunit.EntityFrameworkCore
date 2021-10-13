@@ -9,7 +9,6 @@ namespace RoushTech.Xunit.EntityFrameworkCore.Tests.Setup
         {
             ServiceScope = DatabaseConfig.Instance.Services.CreateScope();
             DbContext = ServiceProvider.GetService<DatabaseContext>();
-            Setup();
         }
     }
 }
