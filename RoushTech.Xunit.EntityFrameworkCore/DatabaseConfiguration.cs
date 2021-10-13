@@ -40,7 +40,7 @@ namespace RoushTech.Xunit.EntityFrameworkCore
                 configuration.Value = configuration.Value.Replace("{ID}", InstanceId.ToString());
             }
         }
-        
+
         public void EnableDatabaseDestruction()
         {
             AppDomain.CurrentDomain.ProcessExit += (s, e) => Dispose();
@@ -61,7 +61,7 @@ namespace RoushTech.Xunit.EntityFrameworkCore
 
         private bool Check(string directory)
         {
-            var file = $"{directory}appsettings.json";
+            var file = $"{directory}/appsettings.json";
             Console.WriteLine(file);
             return File.Exists(file);
         }
@@ -92,7 +92,7 @@ namespace RoushTech.Xunit.EntityFrameworkCore
             foreach (var dbContextType in ManagedContexts)
             {
                 using (var scope = Services.CreateScope())
-                using (var dataContext = (DbContext) scope.ServiceProvider.GetService(dbContextType))
+                using (var dataContext = (DbContext)scope.ServiceProvider.GetService(dbContextType))
                 {
                     action(dataContext.Database);
                 }

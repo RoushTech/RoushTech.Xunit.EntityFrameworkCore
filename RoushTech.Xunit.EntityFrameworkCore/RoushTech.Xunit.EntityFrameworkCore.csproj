@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <Description>Xunit + Entity Framework Core RoushTech Toolkit</Description>
-        <Copyright>RoushTech, LLC 2018</Copyright>
+        <Copyright>RoushTech, LLC 2018-2021</Copyright>
         <AssemblyTitle>RoushTech.Xunit.EntityFrameworkCore</AssemblyTitle>
-        <VersionPrefix>0.0.6</VersionPrefix>
+        <VersionPrefix>0.0.7</VersionPrefix>
         <Authors>William Roush</Authors>
         <AssemblyName>RoushTech.Xunit.EntityFrameworkCore</AssemblyName>
         <PackageId>RoushTech.Xunit.EntityFrameworkCore</PackageId>
@@ -13,11 +13,11 @@
         <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
         <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
         <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-        <TargetFrameworks>netcoreapp2.1</TargetFrameworks>
+        <TargetFrameworks>netstandard2.1</TargetFrameworks>
     </PropertyGroup>
     <ItemGroup>
-      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.4" />
-      <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.1.1" />
-      <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.1.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.11" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="5.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
     </ItemGroup>
 </Project>
